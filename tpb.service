@@ -1,0 +1,25 @@
+[Unit]
+Description=Telegram Print Bot
+After=network.target cups.service
+Wants=cups.service
+Requires=cups.service
+
+[Service]
+Type=simple
+User=timur
+Group=lp
+WorkingDirectory=/home/timur/tpb
+Environment="PATH=/home/timur/tpb/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="HOME=/home/timur"
+ExecStart=/home/timur/tpb/venv/bin/python3 /home/timur/tpb/bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Важно для доступа к CUPS
+UMask=022
+PrivateTmp=no
+
+[Install]
+WantedBy=multi-user.target
