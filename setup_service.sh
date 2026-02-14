@@ -2,7 +2,7 @@
 set -e
 
 # Переменные
-SERVICE_NAME="tpb-bot"
+SERVICE_NAME="telegram-print-bot"
 USER_NAME=$(whoami)
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHON_EXEC="$PROJECT_DIR/venv/bin/python3"
